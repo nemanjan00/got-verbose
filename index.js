@@ -1,5 +1,7 @@
 const got = require("got");
 
+const cacheable = new CacheableLookup();
+
 const handler = {
 	get: (object, prop) => {
 		const error = ("" + (new Error()).stack).split("\n").filter((el, key) => key > 1);
@@ -38,6 +40,7 @@ const handler = {
 
 const http = new Proxy(got.extend({
 	retry: 0,
+	dnsCache: cacheable,
 	hooks: {
 		beforeError: [ (error) => {
 			error.stack = error.stack.replace(error.message, error.message + ` while sending ${error.request.options.method} request to ${error.request.options.url.href}`);

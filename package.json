@@ -8,6 +8,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "cacheable-lookup": "^7.0.0",
     "got": "^11.8.2"
   }
 }
