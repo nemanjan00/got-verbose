@@ -1,5 +1,7 @@
 const got = require("got");
 
+const CacheableLookup = require("cacheable-lookup");
+
 const cacheable = new CacheableLookup();
 
 const handler = {
