@@ -1,6 +1,6 @@
 const got = require("got");
 
-const CacheableLookup = require("cacheable-lookup").default;
+const CacheableLookup = require("cacheable-lookup");
 
 const cacheable = new CacheableLookup();
 
