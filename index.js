@@ -60,7 +60,7 @@ const http = new Proxy(got.extend({
 			}
 
 			if(process.env.HTTP_CURL) {
-				console.log(`curl $'${options.url}' ` + Object.keys(options.headers).map(header => `-H $'${header}: ${options.headers[header]}' `).join(""));
+				console.log(`curl -X ${options.method} $'${options.url}' ` + Object.keys(options.headers).map(header => `-H $'${header}: ${options.headers[header]}' `).join(""));
 			}
 		} ],
 		afterResponse: [ (response) => {
