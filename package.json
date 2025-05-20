@@ -1,6 +1,6 @@
 {
   "name": "got-verbose",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Wrapper around got for tracing and nicer error handling",
   "main": "index.js",
   "repository": "https://github.com/nemanjan00/got-verbose.git",
