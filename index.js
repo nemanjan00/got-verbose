@@ -60,7 +60,18 @@ const http = new Proxy(got.extend({
 			}
 
 			if(process.env.HTTP_CURL) {
-				console.log(`curl -X ${options.method} $'${options.url}' ` + Object.keys(options.headers).map(header => `-H $'${header}: ${options.headers[header]}' `).join(""));
+				let curl = `$ curl -X ${options.method} $'${options.url}' ` + Object.keys(options.headers).map(header => `-H $'${header}: ${options.headers[header]}' `).join("");
+
+				if(options.body !== undefined) {
+					console.log("Got body")
+					if(typeof options.body == "string") {
+						curl += `--data-binary $'${options.body}'`;
+					} else if(options.body instanceof Buffer) {
+						curl += `--data-binary @- <<< $'${options.body.toString()}'`;
+					}
+				}
+
+				console.log(curl);
 			}
 		} ],
 		afterResponse: [ (response) => {

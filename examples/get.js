@@ -1,5 +1,7 @@
 const http = require("../");
 
-http.get("https://google.com/").then((res) => {
+http.post("https://google.com/", {
+	body: Buffer.from("123")
+}).then((res) => {
 	console.log(res);
 });
