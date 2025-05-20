@@ -58,6 +58,10 @@ const http = new Proxy(got.extend({
 			if(process.env.HTTP_TRACE) {
 				options._start = new Date();
 			}
+
+			if(process.env.HTTP_CURL) {
+				console.log(`curl $'${options.url}' ` + Object.keys(options.headers).map(header => `-H $'${header}: ${options.headers[header]}' `).join(""));
+			}
 		} ],
 		afterResponse: [ (response) => {
 			if(process.env.HTTP_TRACE) {
