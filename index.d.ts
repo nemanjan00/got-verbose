@@ -1,2 +1,3 @@
-import Got from 'got';
-export default Got;
+import got from 'got';
+declare const proxy: typeof got;
+export = proxy;
