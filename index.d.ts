@@ -1,1 +1,2 @@
-export { default as default } from 'got';
+import Got from 'got';
+export default Got;
