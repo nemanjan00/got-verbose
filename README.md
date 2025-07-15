@@ -2,7 +2,7 @@
 
 This is based off `got@^11.8.2`. 
 
-I added some features that I felt were missing:
+I added some features that I felt were missing (a bit opinionated):
 
  - In error message, you actually have details about request that was sent `Error ... while sending POST request to https://www.google.com/123`
 
@@ -12,3 +12,4 @@ I added some features that I felt were missing:
 
  - `HTTP_CURL=true` - It prints curl command for each request sent
 
+ - It has DNS cache!
