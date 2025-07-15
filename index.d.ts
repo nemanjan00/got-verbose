@@ -1,2 +1,1 @@
-export * from 'got';
-export { default } from 'got';
+export { default as default } from 'got';
