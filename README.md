@@ -13,3 +13,9 @@ I added some features that I felt were missing (a bit opinionated):
  - `HTTP_CURL=true` - It prints curl command for each request sent
 
  - It has DNS cache!
+
+ - Disable retry by default
+
+ - Add request details to Error
+
+ - Allow body in GET, as per standard

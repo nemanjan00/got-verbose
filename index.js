@@ -43,6 +43,7 @@ const handler = {
 const http = new Proxy(got.extend({
 	retry: 0,
 	dnsCache: cacheable,
+	allowGetBody: true,
 	hooks: {
 		beforeError: [ (error) => {
 			error.stack = error.stack.replace(error.message, error.message + ` while sending ${error.request.options.method} request to ${error.request.options.url.href}`);
