@@ -56,15 +56,27 @@ const http = new Proxy(got.extend({
 				method: options.method,
 				req: {
 					headers: options.headers,
-					body: options.body?.toString(),
 				},
 				res: {
 					status: response?.statusCode,
 					message: response?.statusMessage,
 					headers: response?.headers,
-					body: response?.body?.toString()
 				}
 			};
+
+			if (options.responseType === "json") {
+				error.http.res.body = JSON.stringify(response?.body);
+			}
+			else {
+				error.http.res.body = response?.body?.toString();
+			}
+
+			if (options.json) {
+				error.http.req.body = JSON.stringify(options.json);
+			}
+			else {
+				error.http.req.body = options.body?.toString();
+			}
 
 			if(process.env.HTTP_TRACE) {
 				console.error(error.message);
